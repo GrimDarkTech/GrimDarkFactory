@@ -4,14 +4,20 @@ public class droneToolScript : MonoBehaviour
 {
 
     private Vector3 cursorDirection = new Vector2(0, 0);
+    private float focusRange = 2f;
 
     public float rotationAngle = 0.1f;
+    public float maxFocusRange = 3f;
     public GameObject droneToolFirePoint;
+    
     void Update()
     {
         cursorDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         rotationAngle = Mathf.Atan2(cursorDirection.y, cursorDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+
+        focusRange = focusRange + Input.GetAxis("Mouse ScrollWheel");
+        droneToolFirePoint.transform.position = gameObject.transform.position + droneToolFirePoint.transform.right * focusRange;
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
