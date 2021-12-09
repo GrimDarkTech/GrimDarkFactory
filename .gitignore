@@ -26,6 +26,7 @@ ExportedObj/
 *.log
 *.VC.db
 Logs/
+Logs\
 .vscode/settings.json
 
 # Unity3D generated meta files
