@@ -18,8 +18,7 @@ public class droneMovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        movementForce.x = Input.GetAxis("Horizontal");
-        movementForce.y = Input.GetAxis("Vertical") * 0.8f; 
+        movementForce = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * 0.8f * transform.up;
         _rigidbody2D.AddForce(movementForce);
         engineAngle = Mathf.Atan2(0.2f + movementForce.y, movementForce.x) * Mathf.Rad2Deg + 270f;
         engine.transform.rotation = Quaternion.Euler(0, 0, engineAngle);
