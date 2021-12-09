@@ -24,8 +24,8 @@ ExportedObj/
 *.pdb
 *.opendb
 *.VC.db
-Logs/
-Logs\
+[Ll]ogs/
+[Ll]ogs\
 .vscode/settings.json
 
 # Unity3D generated meta files
