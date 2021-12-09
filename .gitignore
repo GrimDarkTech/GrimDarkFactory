@@ -24,7 +24,9 @@ ExportedObj/
 *.pdb
 *.opendb
 *.VC.db
-*.log
+[Ll]ogs/
+[Ll]ogs\
+.vscode/settings.json
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -36,3 +38,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.log
+
+
