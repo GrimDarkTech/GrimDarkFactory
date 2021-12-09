@@ -4,10 +4,10 @@ public class droneToolScript : MonoBehaviour
 {
 
     private Vector3 cursorDirection = new Vector2(0, 0);
-    private float focusRange = 2f;
+    private float focusRange = 0.64f;
+    [SerializeField] private float maxFocusRange = 0.64f; //WIP
 
     public float rotationAngle = 0.1f;
-    public float maxFocusRange = 3f;
     public GameObject droneToolFirePoint;
     
     void Update()

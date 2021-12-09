@@ -7,7 +7,7 @@ public class droneMovementScript : MonoBehaviour
     private Vector2 forwardRotationForce = new Vector2(0, 0);
     private Vector2 backwardRotationForce = new Vector2(0, 0);
     private float engineAngle = 0; 
-    [SerializeField] private float forceMultipier = 1f;
+    [SerializeField] private float forceMultipier = 1.5f;
 
     public GameObject engine;
     public GameObject engineBig;
