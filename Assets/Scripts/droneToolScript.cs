@@ -25,7 +25,7 @@ public class droneToolScript : MonoBehaviour
             hit = Physics2D.Raycast(droneToolFirePoint.transform.position, droneToolFirePoint.transform.right);
             if (hit.collider != null && hit.rigidbody != null)
             {
-                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * 0.4f, hit.point);
+                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * 1.5f, hit.point);
             }
         }
         if (Input.GetKey(KeyCode.Mouse1))
@@ -34,7 +34,7 @@ public class droneToolScript : MonoBehaviour
             hit = Physics2D.Raycast(droneToolFirePoint.transform.position, droneToolFirePoint.transform.right);
             if (hit.collider != null && hit.rigidbody != null)
             {
-                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * -0.4f, hit.point);
+                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * -1.5f, hit.point);
             }
         }
     }
