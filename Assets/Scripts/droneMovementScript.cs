@@ -24,6 +24,7 @@ public class droneMovementScript : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false;
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
