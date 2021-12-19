@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class droneToolModeScript : MonoBehaviour
 {
     private toolMode1Script _toolMode1Script;
     private toolMode2Script _toolMode2Script;
+    //public Text _debugText;
 
     [SerializeField] private float mouseScrollValue = 1;
     private int toolId = 0;
@@ -16,6 +18,7 @@ public class droneToolModeScript : MonoBehaviour
     }
     void Update()
     {
+        //_debugText.text = toolId.ToString();
         mouseScrollValue = mouseScrollValue +  Input.GetAxis("Mouse ScrollWheel")*10;
         toolId = Mathf.Abs(Mathf.FloorToInt(mouseScrollValue));
         toolId = toolId % (toolNumber);

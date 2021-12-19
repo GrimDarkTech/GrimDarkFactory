@@ -14,7 +14,7 @@ public class toolMode2Script : MonoBehaviour
     public GameObject droneToolFirePoint;
     public GameObject droneToolFocusPoint;
 
-    void Update()
+    void FixedUpdate()
     {
         cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         cursorPosition.z = 0;
@@ -49,7 +49,7 @@ public class toolMode2Script : MonoBehaviour
             if (hit.collider != null && hit.rigidbody != null)
             {
                 Debug.DrawLine(droneToolFocusPoint.transform.position, hit.transform.position, Color.green);
-                hit.rigidbody.AddForce(droneToolFirePoint.transform.right * 1.5f);
+                hit.rigidbody.AddForce(droneToolFirePoint.transform.right * 1.5f*20);
             }
         }
         if (Input.GetKey(KeyCode.Mouse1))
@@ -59,7 +59,7 @@ public class toolMode2Script : MonoBehaviour
             if (hit.collider != null && hit.rigidbody != null)
             {
                 Debug.DrawLine(droneToolFocusPoint.transform.position, hit.transform.position, Color.blue);
-                hit.rigidbody.AddForce(droneToolFocusPoint.transform.right * -1.5f);
+                hit.rigidbody.AddForce(droneToolFocusPoint.transform.right * -1.5f*20);
             }
         }
     }
