@@ -7,14 +7,16 @@ public class toolMode1Script : MonoBehaviour
     private Vector3 cursorDirection = new Vector2(0, 0);
 
     private float focusRange = 0.64f;
+
     [SerializeField] private float maxFocusRange = 0.64f;
     [SerializeField] private float minFocusRange = 0.16f;
 
     public float rotationAngle = 0.1f;
+    public float forceMultiplier = 20f;
     public GameObject droneToolFirePoint;
     public GameObject droneToolFocusPoint;
 
-    void Update()
+    void FixedUpdate()
     {
         cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         cursorPosition.z = 0;
@@ -49,7 +51,7 @@ public class toolMode1Script : MonoBehaviour
             if (hit.collider != null && hit.rigidbody != null)
             {
                 Debug.DrawLine(droneToolFocusPoint.transform.position, hit.point, Color.green);
-                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * 1.5f, hit.point);
+                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * forceMultiplier, hit.point);
             }
         }
         if (Input.GetKey(KeyCode.Mouse1))
@@ -59,7 +61,7 @@ public class toolMode1Script : MonoBehaviour
             if (hit.collider != null && hit.rigidbody != null)
             {
                 Debug.DrawLine(droneToolFocusPoint.transform.position, hit.point, Color.blue);
-                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * -1.5f, hit.point);
+                hit.rigidbody.AddForceAtPosition(droneToolFirePoint.transform.right * -forceMultiplier, hit.point);
             }
         }
     }

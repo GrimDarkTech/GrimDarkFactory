@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public class toolMode2Script : MonoBehaviour
+public class toolMode3Script : MonoBehaviour
 {
 
     private Vector3 cursorPosition = new Vector2(0, 0);
     private Vector3 cursorDirection = new Vector2(0, 0);
 
     private float focusRange = 0.64f;
-    [SerializeField] private float maxFocusRange = 0.64f;
-    [SerializeField] private float minFocusRange = 0.16f;
+    [SerializeField] private float maxFocusRange = 0.70f;
+    [SerializeField] private float minFocusRange = 0.46f;
 
     public float forceMultiplier = 20f;
     public float rotationAngle = 0.1f;
+    public float forceRadius = 0.44f;
     public GameObject droneToolFirePoint;
     public GameObject droneToolFocusPoint;
 
@@ -39,28 +40,27 @@ public class toolMode2Script : MonoBehaviour
         {
             Debug.DrawLine(droneToolFirePoint.transform.position, focusRayHit.point, Color.red);
             focusRange = focusRayHit.distance;
+
         }
 
         droneToolFocusPoint.transform.position = droneToolFirePoint.transform.position + gameObject.transform.right * focusRange;
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            RaycastHit2D hit;
-            hit = Physics2D.Raycast(droneToolFirePoint.transform.position, droneToolFirePoint.transform.right);
-            if (hit.collider != null && hit.rigidbody != null)
+            RaycastHit2D raycastHit2D;
+            raycastHit2D = Physics2D.CircleCast(droneToolFocusPoint.transform.position, forceRadius, droneToolFirePoint.transform.right);
+            if (raycastHit2D.collider != null && raycastHit2D.rigidbody != null)
             {
-                Debug.DrawLine(droneToolFocusPoint.transform.position, hit.transform.position, Color.green);
-                hit.rigidbody.AddForce((hit.rigidbody.transform.position - droneToolFocusPoint.transform.position).normalized * forceMultiplier);
+                raycastHit2D.rigidbody.AddForce((raycastHit2D.rigidbody.transform.position -droneToolFocusPoint.transform.position).normalized * forceMultiplier);
             }
         }
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            RaycastHit2D hit;
-            hit = Physics2D.Raycast(droneToolFocusPoint.transform.position, droneToolFirePoint.transform.right);
-            if (hit.collider != null && hit.rigidbody != null)
+            RaycastHit2D raycastHit2D;
+            raycastHit2D = Physics2D.CircleCast(droneToolFocusPoint.transform.position, forceRadius, droneToolFirePoint.transform.right);
+            if (raycastHit2D.collider != null && raycastHit2D.rigidbody != null)
             {
-                Debug.DrawLine(droneToolFocusPoint.transform.position, hit.transform.position, Color.blue);
-                hit.rigidbody.AddForce((hit.rigidbody.transform.position - droneToolFocusPoint.transform.position).normalized * -forceMultiplier);
+                raycastHit2D.rigidbody.AddForce((raycastHit2D.rigidbody.transform.position - droneToolFocusPoint.transform.position).normalized * -forceMultiplier);
             }
         }
     }

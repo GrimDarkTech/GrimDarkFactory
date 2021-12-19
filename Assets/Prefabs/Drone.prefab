@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 7740828718433241958}
   - component: {fileID: 8650476082020532480}
   - component: {fileID: 8865454404776480421}
+  - component: {fileID: 9033719829104341230}
   m_Layer: 0
   m_Name: droneTool
   m_TagString: Untagged
@@ -653,6 +654,7 @@ MonoBehaviour:
   maxFocusRange: 0.64
   minFocusRange: 0.16
   rotationAngle: 0.1
+  forceMultiplier: 20
   droneToolFirePoint: {fileID: 4394764100424816593}
   droneToolFocusPoint: {fileID: 3755872502017214391}
 --- !u!114 &8650476082020532480
@@ -667,6 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c510186f00b6a4a933a749fdaae769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseScrollValue: 1
 --- !u!114 &8865454404776480421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,3 +682,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5b82d590e2d7447bed97d250e48cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFocusRange: 0.64
+  minFocusRange: 0.16
+  forceMultiplier: 20
+  rotationAngle: 0.1
+  droneToolFirePoint: {fileID: 0}
+  droneToolFocusPoint: {fileID: 0}
+--- !u!114 &9033719829104341230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412391025184403433}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435ad703358dd39449f9099214b4f2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFocusRange: 0.64
+  minFocusRange: 0.16
+  forceMultiplier: 20
+  rotationAngle: 0.1
+  forceRadius: 0.4
+  droneToolFirePoint: {fileID: 0}
+  droneToolFocusPoint: {fileID: 0}

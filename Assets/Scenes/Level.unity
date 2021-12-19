@@ -39927,10 +39927,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2920666641366588811, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755872502017214391, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3897497949088716745, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
         type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 3897497949088716745, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394764100424816593, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598915125517233618, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4898047077884538235, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
         type: 3}
@@ -39962,6 +39987,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8193755250284864129, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412391025184403433, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8865454404776480421, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
         type: 3}
       propertyPath: m_Enabled
@@ -39973,6 +40008,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11346192}
     - target: {fileID: 8865454404776480421, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: droneToolFocusPoint
+      value: 
+      objectReference: {fileID: 1350471739}
+    - target: {fileID: 9033719829104341230, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
+        type: 3}
+      propertyPath: droneToolFirePoint
+      value: 
+      objectReference: {fileID: 11346192}
+    - target: {fileID: 9033719829104341230, guid: 4c0faeeaaf3721240a870fbbd3e88a7b,
         type: 3}
       propertyPath: droneToolFocusPoint
       value: 
