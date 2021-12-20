@@ -12,10 +12,11 @@ public class droneMovementScript : MonoBehaviour
 
     //newPhysics
 
-    private int inertiaDampers = 1;
 
     private Vector2 dampersForce = new Vector2(0, 0);
     private Vector2 movementDirection = new Vector2(0, 0);
+    private Vector2 velocityDirected = new Vector2(0, 0);
+    private Vector2 velocityPerpendicular = new Vector2(0, 0);
 
     [SerializeField] private float forceMultipier = 50f;
 
@@ -30,14 +31,17 @@ public class droneMovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        movementDirection = (Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.up) * forceMultipier;
-        movementForce = movementDirection - Vector2.down*_rigidbody2D.mass*9.81f - dampersForce * inertiaDampers;
+        movementDirection = ((Input.GetAxis("Horizontal")) * transform.right + Input.GetAxis("Vertical") * transform.up) * forceMultipier;
+        velocityDirected = (Vector2.Dot(_rigidbody2D.velocity, movementForce) / movementForce.magnitude) * movementForce.normalized;
+        Debug.DrawRay(_rigidbody2D.transform.position, dampersForce.normalized, Color.blue);
+        movementForce = movementDirection - Vector2.down * _rigidbody2D.mass * 9.81f;
         _rigidbody2D.AddForce(movementForce);
+        Debug.DrawRay(_rigidbody2D.transform.position, movementForce.normalized, Color.green);
         engineAngle = Mathf.Atan2(movementForce.y, movementForce.x) * Mathf.Rad2Deg + 270f;
         engine.transform.rotation = Quaternion.Euler(0, 0, engineAngle);
         engineBig.transform.rotation = Quaternion.Euler(0, 0, engineAngle);
-        forwardRotationForce = transform.up * Input.GetAxis("bodyRotation") * forceMultipier * 0.02f;
-        backwardRotationForce = transform.up * Input.GetAxis("bodyRotation") * forceMultipier * 0.02f;
+        forwardRotationForce = transform.up * Input.GetAxis("bodyRotation") * forceMultipier * 0.05f;
+        backwardRotationForce = transform.up * Input.GetAxis("bodyRotation") * forceMultipier * 0.05f;
         _rigidbody2D.AddForceAtPosition(forwardRotationForce, engineBig.transform.position);
         _rigidbody2D.AddForceAtPosition(backwardRotationForce, engine.transform.position);
     }

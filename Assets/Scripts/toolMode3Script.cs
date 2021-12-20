@@ -10,12 +10,21 @@ public class toolMode3Script : MonoBehaviour
     [SerializeField] private float maxFocusRange = 0.70f;
     [SerializeField] private float minFocusRange = 0.46f;
 
-    public float forceMultiplier = 20f;
+    public float forceMultiplier = 60f;
     public float rotationAngle = 0.1f;
     public float forceRadius = 0.44f;
     public GameObject droneToolFirePoint;
     public GameObject droneToolFocusPoint;
+    public ParticleSystem gravityParticleSystem;
+    ParticleSystem.MainModule gravityParticleSystemMain;
+    ParticleSystem.ShapeModule gravityParticleSystemShape;
 
+    void Start()
+    {
+        gravityParticleSystem = droneToolFirePoint.GetComponentInChildren<ParticleSystem>();
+        gravityParticleSystemMain = gravityParticleSystem.main;
+        gravityParticleSystemShape = gravityParticleSystem.shape;
+    }
     void FixedUpdate()
     {
         cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -23,6 +32,7 @@ public class toolMode3Script : MonoBehaviour
         cursorDirection = (cursorPosition - gameObject.transform.position).normalized;
         rotationAngle = Mathf.Atan2(cursorDirection.y, cursorDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+
 
         focusRange = (cursorPosition - droneToolFirePoint.transform.position).magnitude;
 
@@ -36,7 +46,7 @@ public class toolMode3Script : MonoBehaviour
         }
         RaycastHit2D focusRayHit;
         focusRayHit = Physics2D.Raycast(droneToolFirePoint.transform.position, gameObject.transform.right, focusRange);
-        if (focusRayHit.collider != null)
+        if (focusRayHit.collider != null && focusRayHit.transform.tag == "Walls")
         {
             Debug.DrawLine(droneToolFirePoint.transform.position, focusRayHit.point, Color.red);
             focusRange = focusRayHit.distance;

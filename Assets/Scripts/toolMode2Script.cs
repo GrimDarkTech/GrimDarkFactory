@@ -10,7 +10,7 @@ public class toolMode2Script : MonoBehaviour
     [SerializeField] private float maxFocusRange = 0.64f;
     [SerializeField] private float minFocusRange = 0.16f;
 
-    public float forceMultiplier = 20f;
+    public float forceMultiplier = 60f;
     public float rotationAngle = 0.1f;
     public GameObject droneToolFirePoint;
     public GameObject droneToolFocusPoint;
