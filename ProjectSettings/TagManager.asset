@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Walls
   - Prop
+  - Ore
+  - Material
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ore
+  - Material
+  - Part
+  - Box
   - 
   - 
   - 
