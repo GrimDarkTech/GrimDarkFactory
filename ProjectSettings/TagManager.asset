@@ -8,6 +8,9 @@ TagManager:
   - Prop
   - Ore
   - Material
+  - Ingot
+  - Part
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Material
   - Part
   - Box
-  - 
+  - Ingot
   - 
   - 
   - 
