@@ -5,6 +5,8 @@ public class packerScript : MonoBehaviour
 {
     private BoxCollider2D _boxCollider2D;
     [SerializeField] private GameObject box;
+    [SerializeField] private GameObject cardboardBox;
+    [SerializeField] private GameObject ingotBox;
 
     private containerScript boxContent;
     private GameObject boxPlaced;
@@ -24,6 +26,14 @@ public class packerScript : MonoBehaviour
             {
                 case "Material":
                     boxPlaced = Instantiate(box, gameObject.transform.position, gameObject.transform.rotation);
+                    boxContent = boxPlaced.GetComponent<containerScript>();
+                    packedPrefabInfo = other.gameObject.GetComponent<prefabInfo>();
+                    Debug.Log(packedPrefabInfo.getPrefab().name);
+                    boxContent.set—ontent(packedPrefabInfo.getPrefab());
+                    Destroy(other.gameObject);
+                    break;
+                case "Ingot":
+                    boxPlaced = Instantiate(ingotBox, gameObject.transform.position, gameObject.transform.rotation);
                     boxContent = boxPlaced.GetComponent<containerScript>();
                     packedPrefabInfo = other.gameObject.GetComponent<prefabInfo>();
                     Debug.Log(packedPrefabInfo.getPrefab().name);

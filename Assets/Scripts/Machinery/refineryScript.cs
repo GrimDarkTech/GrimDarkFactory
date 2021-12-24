@@ -5,7 +5,10 @@ public class refineryScript : MonoBehaviour
 {
     private BoxCollider2D propCollider;
     [SerializeField] GameObject dropPoint;
-    [SerializeField] GameObject ingot;
+    [SerializeField] GameObject ingotMetal;
+    [SerializeField] GameObject ingotCopper;
+    [SerializeField] GameObject ingotSilicate;
+    private materialInfo oreMaterial;
     void Start()
     {
         propCollider = gameObject.GetComponent<BoxCollider2D>();
@@ -14,14 +17,26 @@ public class refineryScript : MonoBehaviour
     {
         if(other.tag == "Ore")
         {
+            oreMaterial = other.gameObject.GetComponent<materialInfo>();
             Destroy(other.gameObject);
-            StartCoroutine(refineryTimer(2));
+            StartCoroutine(refineryTimer(2, oreMaterial.getMaterial()));
         }
     }
 
-    IEnumerator refineryTimer(float time)
+    IEnumerator refineryTimer(float time, string material)
     {
         yield return new WaitForSeconds(time);
-        Instantiate(ingot, dropPoint.transform.position, dropPoint.transform.rotation);
+        switch (material)
+        {
+            case "metal":
+                Instantiate(ingotMetal, dropPoint.transform.position, dropPoint.transform.rotation);
+                    break;
+            case "copper":
+                Instantiate(ingotCopper, dropPoint.transform.position, dropPoint.transform.rotation);
+                break;
+            case "silicate":
+                Instantiate(ingotSilicate, dropPoint.transform.position, dropPoint.transform.rotation);
+                break;
+        }
     }
 }
